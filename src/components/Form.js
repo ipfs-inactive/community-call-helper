@@ -25,11 +25,8 @@ const styles = theme => ({
 
 class AnnouncementForm extends React.Component {
   state = {
-    name: '',
+    name: 'JavaScript Working Group',
     callTitle: 'JS-IPFS Community Call',
-    callTime: '18:30 UTC',
-    announcmentText: '',
-    callLink: '',
   };
 
 //   handleChange = name => event => {
@@ -44,17 +41,17 @@ class AnnouncementForm extends React.Component {
   };
 
   onSubmit = e => {
-      e.preventDefault()
-    //   this.props.onSubmit()
-      this.props.onSubmit(this.state)
-      console.log(this.state);
-      this.setState({
-        name: '',
-        callTitle: '',
-        callTime: '',
-        announcmentText: '',
-        callLink: '',
-      })
+    e.preventDefault()
+    this.props.onSubmit(this.state);
+      // this.props.onSubmit(this.state)
+      // console.log(this.state);
+      // this.setState({
+      //   name: '',
+      //   callTitle: '',
+      //   callTime: '',
+      //   announcmentText: '',
+      //   callLink: '',
+      // })
   }
 
   render() {
@@ -80,35 +77,7 @@ class AnnouncementForm extends React.Component {
           onChange={e => this.change(e)}
           margin="normal"
         />
-        <TextField
-          id="standard-name"
-          name="callTime"
-          label="Time of Call"
-          className={classes.textField}
-          value={this.state.callTime}
-          onChange={e => this.change(e)}
-          margin="normal"
-        />
-        <TextField
-          id="standard-name"
-          name="announcementText"
-          label="Announcement"
-          className={classes.textField}
-          value={this.state.announcementText}
-          onChange={e => this.change(e)}
-          margin="normal"
-        />
-        <TextField
-          id="standard-name"
-          name="callLink"
-          label="Call Link"
-          className={classes.textField}
-          value={this.state.callLink}
-          onChange={e => this.change(e)}
-          margin="normal"
-        />
-        <br />
-        <button onClick = {e => this.onSubmit(e)}>Submit</button>
+        <button onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
     );
   }

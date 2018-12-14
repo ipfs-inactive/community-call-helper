@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconAvatars from './IconAvatars';
-import AnnouncementForm from './AnnouncementForm'
+import AnnouncementForm from './Form'
 
 const styles = {
   card: {
@@ -29,7 +29,7 @@ const styles = {
 
 function SimpleCard(props) {
   const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
+  const bullet = <span className={classes.bullet}>•</span>;
 
   // onSubmit = fields => {
   //   console.log("App component")
@@ -39,7 +39,7 @@ function SimpleCard(props) {
     <Card className={classes.card}>
       <CardContent>
         <IconAvatars />
-        <AnnouncementForm onSubmit={fields => this.onSubmit(fields)}/>
+        <AnnouncementForm />
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
