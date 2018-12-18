@@ -1,31 +1,44 @@
 <template>
     <div class="hompage">
-        <h1>{{ msg }}</h1>
-          <article class="br2 ba pink b--black-10 mv4 w-100 w-50-m w-25-l mw5 center sans-serif">
-            <img src="http://placekitten.com/g/600/300" class="db w-100 br2 br--top" alt="Photo of a kitten looking menacing.">
-            <div class="pa2 ph3-ns pb3-ns">
-                <div class="dt w-100 mt1">
-                <div class="dtc">
-                    <h1 class="f5 f4-ns mv0 tl">Cat</h1>
+        <h1 class="center">{{ msg }}</h1>
+        <main class="pa4 black-80">
+            <form class="measure center">
+                <fieldset id="a" class="ba b--transparent ph0 mh0">
+                <legend class="f4 fw6 ph0 mh0">Broadcast Community Call 🎉🎊🎉 </legend>
+                <div class="mt3">
+                    <label class="db fw6 lh-copy f6" for="email-address">Name of Working Group</label>
+                    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address">
                 </div>
-                <div class="dtc tr">
-                    <h2 class="f5 mv0">$1,000</h2>
+                <div class="mv3">
+                    <label class="db fw6 lh-copy f6" for="password">Name of Call</label>
+                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password">
                 </div>
+                <div class="mv3">
+                    <label class="db fw6 lh-copy f6" for="password">Announcment</label>
+                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password">
                 </div>
-                <p class="f6 lh-copy measure mt2 orange tl">
-                If it fits, i sits burrow under covers. Destroy couch leave hair everywhere,
-                and touch water with paw then recoil in horror.
-                </p>
-            </div>
-        </article>
 
+                </fieldset>
+                <div class="">
+                <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit">
+                </div>
+            </form>
+        </main>    
     </div>
 </template>
 <script>
 export default {
   name: 'HomePage',
-  props: {
-    msg: String
+  data() {
+      return {
+          msg: "Commmunity Call Utils",
+      }
   }
 }
 </script>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+
