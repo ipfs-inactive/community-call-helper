@@ -11,12 +11,12 @@
                         {{ workingGroup }}
                 </div>
                 <div class="mv3">
-                    <label class="db fw6 lh-copy f6" for="password">Name of Call</label>
-                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password">
+                    <label class="db fw6 lh-copy f6" for="textfield">Name of Call</label>
+                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield" v-model="callName">
                 </div>
                 <div class="mv3">
-                    <label class="db fw6 lh-copy f6" for="password">Announcment</label>
-                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password">
+                    <label class="db fw6 lh-copy f6" for="textfield">Announcment</label>
+                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield">
                 </div>
                 </fieldset>
                 <div class="">
@@ -32,7 +32,7 @@ export default {
   methods: {
       attention: function(event) {
           event.preventDefault();
-          alert(this.workingGroup)
+          alert(this.workingGroup + " and " + this.callName)
       }
   }
 }
@@ -42,4 +42,3 @@ export default {
         text-align: center;
     }
 </style>
-
