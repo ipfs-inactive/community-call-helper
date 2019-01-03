@@ -20,20 +20,27 @@
                 </div>
                 </fieldset>
                 <div class="">
-                <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib popup" type="submit" value="Submit" v-on:click.prevent="attention">
+                <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib popup" type="submit" value="Submit" @click="createPost()">
                 </div>
             </form>
         </main>    
     </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HomePage',
   methods: {
-      attention: function(event) {
-          event.preventDefault();
-          alert(this.workingGroup + " and " + this.callName)
-      }
+    createPost() {
+        axios.post('https://api.github.com/repos/pkafei/Distributed-Medicine/issues?access_token=key', {
+        title: this.workingGroup,
+        body: this.callName
+    }).then((response) => {})
+    .catch((e) => {
+        console.error(e)
+        })
+    }
   }
 }
 </script>
