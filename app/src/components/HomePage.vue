@@ -26,8 +26,6 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
-
 export default {
   name: 'HomePage',
   data: () => ({
@@ -38,11 +36,19 @@ export default {
   methods: {
     async createPost() {
       let url = `https://api.github.com/repos/pkafei/Distributed-Medicine/issues?access_token=${localStorage.token}`
-      let response = await axios.post(url, {
+      const rawResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
           title: this.workingGroup,
           body: this.callName
+        })
       })
-      console.log(response)
+      const content = await rawResponse.json();
+      console.log(content)
     }
   }
 }
