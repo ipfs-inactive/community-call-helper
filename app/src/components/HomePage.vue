@@ -6,8 +6,8 @@
                 <fieldset id="a" class="ba b--transparent ph0 mh0">
                 <legend class="f4 fw6 ph0 mh0">Broadcast Community Call 🎉🎊🎉 </legend>
                 <div class="mt3">
-                    <label class="db fw6 lh-copy f6" for="working-group">Name of Working Group</label>
-                    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="working-group"  id="working-group" v-model="workingGroup">
+                    <label class="db fw6 lh-copy f6" for="sync-date">Date of Community Sync</label>
+                    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="sync-date"  id="sync-date" v-model="syncDate">
                 </div>
                 <div class="mv3">
                     <label class="db fw6 lh-copy f6" for="textfield">Name of Call</label>
@@ -30,12 +30,12 @@ export default {
   name: 'HomePage',
   data: () => ({
     callName: null,
-    workingGroup: null,
+    syncDate: null,
     announcement: null
   }),
   methods: {
     async createPost() {
-      let url = `https://api.github.com/repos/pkafei/Distributed-Medicine/issues?access_token=${localStorage.token}`
+      let url = `https://api.github.com/repos/pkafei/Distributed-Medicine/issues?access_token=01f8414215a5942c6984ff9c8c39df50751b5679`
       const rawResponse = await fetch(url, {
         method: 'POST',
         headers: {
@@ -43,7 +43,7 @@ export default {
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          title: this.workingGroup,
+          title: this.syncDate,
           body: this.callName
         })
       })
