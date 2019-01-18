@@ -27,35 +27,35 @@
 </template>
 <script>
 import config from '../../config.json'
+const template = (data) => `### IPFS  Weekly Call Details
+Please add your agenda items before the call.
+
+Endeavour      | Moderator            | Notetaker | Time (PST - UTC - CET) | Pad
+:------------: | :-------------: | :-------: | :--------------------: | :----:
+All Hands Call | @pkafei    | TBD  | 9:00 **17:00** 18:00  | [agenda and notes](https://docs.google.com/document/d/1WHyIZhBo2eEgYXlZ5HLHg6a6ZWTH3tV848sWkYBJjJA/edit)
+
+### More Info
+${data.callName}
+`
 export default {
   name: 'HomePage',
   data: () => ({
-    callName: null,
+    callName: template(),
     syncDate: null,
     announcement: null
   }),
   methods: {
     async createPost() {
       let url = `https://api.github.com/repos/pkafei/Distributed-Medicine/issues?access_token=${config.token}`
-      let agenda = `
-      <h1>Posting Here</h1>
-      # Agenda and Notes
-
-        Please add your agenda items before the call.
-
-        Endeavour      | Moderator            | Notetaker | Time (PST - UTC - CET) | Pad
-        :------------: | :-------------: | :-------: | :--------------------: | :----:
-        All Hands Call | $MODERATOR    | $NOTETAKER  | 9:00 **17:00** 18:00  | [agenda and notes](https://docs.google.com/document/d/1WHyIZhBo2eEgYXlZ5HLHg6a6ZWTH3tV848sWkYBJjJA/edit)
-      `
       const rawResponse = await fetch(url, {
         method: 'POST',
         headers: {
-        'Accept': 'application/vnd.github.v3.html+json',
-        'Content-Type': 'application/vnd.github.v3.html'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           title: this.syncDate,
-          body: `${agenda} \n` + this.callName 
+          body: template({callName: this.callName})
         })
       })
       const content = await rawResponse.json();
