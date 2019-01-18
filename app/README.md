@@ -9,8 +9,7 @@ Organizing community syncs can be tedious! The Community Sprint Helper is a coll
 
 * Schedule a Community Sync Up via Github Issues
 
-
-
+![](src/assets/screenshot.png)
 
 #### Schedule Community Sync Up Installation
 
@@ -31,6 +30,8 @@ Organizing community syncs can be tedious! The Community Sprint Helper is a coll
 
 
 ## Future Features
+
+* Announcement bar on IPFS website _coming soon_
 
 * Make the markdown customizable
 
