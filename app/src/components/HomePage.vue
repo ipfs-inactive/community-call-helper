@@ -18,8 +18,9 @@
                     <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield" v-model="topic">
                 </div>
                 </fieldset>
-                <div class="">
-                <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib popup" type="submit" value="Submit" @click="createPost()">
+                <div class="input-button">
+                    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib popup" type="submit" value="Submit" @click="createPost()">
+                    <p v-if="error">Please fill out all fields.</p>
                 </div>
             </div>
         </main>
@@ -46,11 +47,12 @@ export default {
   data: () => ({
     syncDate: null,
     presenter: template(),
-    topic: this.topic
+    topic: this.topic,
+    error: false
   }),
   methods: {
     async createPost() {
-      let url = `https://api.github.com/repos/pkafei/Distributed-Medicine/issues?access_token=${config.token}`
+      let url = `https://api.github.com/repos/ipfs/team-mgmt/issues?access_token=${config.token}`
       const rawResponse = await fetch(url, {
         method: 'POST',
         headers: {
@@ -58,7 +60,7 @@ export default {
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          title: `IPFS Weekly call ${this.syncDate} ⚡️📞`,
+          title: `IPFS Weekly Call ${this.syncDate} ⚡️📞`,
           body: template({presenter: this.presenter, topic: this.topic})
         })
       })
