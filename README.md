@@ -9,7 +9,7 @@ Organizing community syncs can be tedious! The Community Sprint Helper is a coll
 
 * Schedule a Community Sync Up via Github Issues
 
-![](src/assets/screenshot.png)
+![](app/src/assets/screenshot.png)
 
 #### Schedule Community Sync Up Installation
 
