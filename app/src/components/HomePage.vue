@@ -10,12 +10,12 @@
                     <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="sync-date"  id="sync-date" v-model="syncDate">
                 </div>
                 <div class="mv3">
-                    <label class="db fw6 lh-copy f6" for="textfield">Name of Call</label>
-                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield" v-model="callName">
+                    <label class="db fw6 lh-copy f6" for="textfield">Presenter</label>
+                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield" v-model="presenter">
                 </div>
                 <div class="mv3">
-                    <label class="db fw6 lh-copy f6" for="textfield">Announcment</label>
-                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield" v-model="announcement">
+                    <label class="db fw6 lh-copy f6" for="textfield">Topic</label>
+                    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="textfield" name="textfield"  id="textfield" v-model="topic">
                 </div>
                 </fieldset>
                 <div class="">
@@ -34,15 +34,19 @@ Endeavour      | Moderator            | Notetaker | Time (PST - UTC - CET) | Pad
 :------------: | :-------------: | :-------: | :--------------------: | :----:
 All Hands Call | @pkafei    | TBD  | 9:00 **17:00** 18:00  | [agenda and notes](https://docs.google.com/document/d/1WHyIZhBo2eEgYXlZ5HLHg6a6ZWTH3tV848sWkYBJjJA/edit)
 
-### More Info
-${data.callName}
+
+Presenter: ${data.presenter}
+
+Topic: ${data.topic}
+
+Zoom link for joining the call:  https://protocol.zoom.us/j/443621844
 `
 export default {
   name: 'HomePage',
   data: () => ({
-    callName: template(),
     syncDate: null,
-    announcement: null
+    presenter: template(),
+    topic: this.topic
   }),
   methods: {
     async createPost() {
@@ -54,8 +58,8 @@ export default {
         'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          title: this.syncDate,
-          body: template({callName: this.callName})
+          title: `IPFS Weekly call ${this.syncDate} ⚡️📞`,
+          body: template({presenter: this.presenter, topic: this.topic})
         })
       })
       const content = await rawResponse.json();
