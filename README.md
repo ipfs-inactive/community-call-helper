@@ -1,5 +1,4 @@
 # Community Call Helper 🤖 📅 ⚡️
----
 
 ### Purpose:
 
@@ -8,8 +7,6 @@ Organizing community syncs can be tedious! The Community Sprint Helper is a coll
 ## Current Feature
 
 * Schedule a Community Sync Up via Github Issues
-
-![](app/src/assets/screenshot.png)
 
 #### Schedule Community Sync Up Installation
 
