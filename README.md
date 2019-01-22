@@ -1,5 +1,4 @@
 # Community Call Helper 🤖 📅 ⚡️
----
 
 ### Purpose:
 
@@ -8,8 +7,6 @@ Organizing community syncs can be tedious! The Community Sprint Helper is a coll
 ## Current Feature
 
 * Schedule a Community Sync Up via Github Issues
-
-![](app/src/assets/screenshot.png)
 
 #### Schedule Community Sync Up Installation
 
@@ -26,26 +23,6 @@ Organizing community syncs can be tedious! The Community Sprint Helper is a coll
 ```
 6. Go back to the command line and enter `npm run serve`
 7. Access the site via localhost:8080
-
-#### Customization
-
-```
-Endeavour      | Moderator            | Notetaker | Time (PST - UTC - CET) | Pad
-:------------: | :-------------: | :-------: | :--------------------: | :----:
-All Hands Call | @pkafei    | TBD  | 9:00 **17:00** 18:00  | [agenda and notes](https://docs.google.com/document/d/1WHyIZhBo2eEgYXlZ5HLHg6a6ZWTH3tV848sWkYBJjJA/edit)
-```
-
-Right now the default sync up in the markdown table is the All Hands On Call. In order to customize the table to your community sync up go to [HomePage.vue]("app/src/components/HomePage.vue") and change the following:
-
-* Endeavor
-* Moderator
-* Notetaker 
-* Pad
-* Zoom link
-
-In the future you will be able to change these columns in the UI.
-
-
 
 ## Future Features
 
