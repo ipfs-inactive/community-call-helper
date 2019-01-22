@@ -1,6 +1,6 @@
 <template>
     <div class="hompage">
-        <h1 class="center">Community Call Utils</h1>
+        <h1 class="center community-call-title">Community Call Utils</h1>
         <main class="pa4 black-80">
             <div class="measure center">
                 <section class="call-detail">
@@ -56,14 +56,14 @@ Please add your agenda items before the call.
 
 Endeavour      | Moderator            | Notetaker | Time (PST - UTC - CET) | Pad
 :------------: | :-------------: | :-------: | :--------------------: | :----:
-{$data.endeavor} | @pkafei    | TBD  | 9:00 **17:00** 18:00  | [agenda and notes](https://docs.google.com/document/d/1WHyIZhBo2eEgYXlZ5HLHg6a6ZWTH3tV848sWkYBJjJA/edit)
+${data.endeavor} | ${data.moderator}    | ${data.noteTaker}  | 9:00 **17:00** 18:00  | [agenda and notes](https://docs.google.com/document/d/1WHyIZhBo2eEgYXlZ5HLHg6a6ZWTH3tV848sWkYBJjJA/edit)
 
 
 Presenter: ${data.presenter}
 
 Topic: ${data.topic}
 
-Zoom link for joining the call:  https://protocol.zoom.us/j/443621844
+Zoom link for joining the call:  ${data.zoomLink}
 `
 export default {
   name: 'HomePage',
@@ -79,7 +79,7 @@ export default {
   }),
   methods: {
     async createPost() {
-      let url = `https://github.com/pkafei/Distributed-Medicine/issues?access_token=${config.token}`
+      let url = `https://api.github.com/repos/ipfs/team-mgmt/issues?access_token=${config.token}`
       const rawResponse = await fetch(url, {
         method: 'POST',
         headers: {
@@ -100,5 +100,8 @@ export default {
 <style>
     h1 {
         text-align: center;
+    }
+    .community-call-title{
+        text-decoration: underline;
     }
 </style>
