@@ -40,6 +40,8 @@ Presenter: ${data.presenter}
 
 Topic: ${data.topic}
 
+Every last Friday of the month we will three 5-minute lightning talks. Each talk will be approximately 10 minutes long, and it'll serve as another way to showcase some of the cool stuff the IPFS community is working on! 😎
+
 Zoom link for joining the call:  https://protocol.zoom.us/j/443621844
 `
 export default {
@@ -64,8 +66,6 @@ export default {
           body: template({presenter: this.presenter, topic: this.topic})
         })
       })
-      const content = await rawResponse.json();
-      console.log(content)
     }
   }
 }
