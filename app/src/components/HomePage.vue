@@ -40,7 +40,7 @@ Presenter: ${data.presenter}
 
 Topic: ${data.topic}
 
-Every last Monday of the month, we will have three 5-minute lightning talks. Each talk will be approximately 10 minutes long, and it'll serve as another way to showcase some of the cool stuff the IPFS community is working on! 😎
+Every last Monday of the month, we will have three 5-minute lightning talks. The mini presentations will serve as another way to showcase some of the cool stuff the IPFS community is working on! 😎
 
 Zoom link for joining the call:  https://protocol.zoom.us/j/443621844
 `
